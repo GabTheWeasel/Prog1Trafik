@@ -35,6 +35,20 @@ public class Lane {
 		return null;
 	}
 	
+	public String toString() {
+		String s = "<";
+		for (int a = 0; a > cars.length; a++) {
+			if (cars[a] != null) {
+				s = s + cars[a].getDestination();
+			} else {
+				s = s + " ";
+			}
+		}
+		
+		s = s + ">";
+		return s;
+	}
+	
 	public void step() {
 		for (int a = 1; a < cars.length; a++) {
 			if (cars[a] != null && cars[a-1] == null) {

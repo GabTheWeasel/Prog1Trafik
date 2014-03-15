@@ -16,12 +16,12 @@ public class TrafficSystem {
  
   public TrafficSystem(VehicleGenerator vg) {
 	  this.vg = vg;
-	  Lane r0 = new Lane(9);
-	  Lane r1 = new Lane(7);
-	  Lane r2 = new Lane(7);
+	  this.r0 = new Lane(9);
+	  this.r1 = new Lane(7);
+	  this.r2 = new Lane(7);
 	  
-	  Light s1 = new Light(5,2);
-	  Light s2 = new Light(5,2);
+	  this.s1 = new Light(5,2);
+	  this.s2 = new Light(5,2);
 	  
 	  
   }
