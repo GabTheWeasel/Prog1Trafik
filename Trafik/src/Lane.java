@@ -37,7 +37,7 @@ public class Lane {
 	
 	public String toString() {
 		String s = "<";
-		for (int a = 0; a > cars.length; a++) {
+		for (int a = 0; a < cars.length; a++) {
 			if (cars[a] != null) {
 				s = s + cars[a].getDestination();
 			} else {
