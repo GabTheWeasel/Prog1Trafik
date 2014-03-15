@@ -13,7 +13,7 @@ public class Simulation {
   private static boolean simulationRun = false;
   
   /** 
-   * Returns current simulation time
+   * Returns current simulation time 
    * @return current time step
    */
   public static int getTime() {
