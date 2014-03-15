@@ -7,11 +7,7 @@ public class Lane {
 	}
 	
 	public Vehicle getFirst() {
-		if (cars[0] != null) {
-			return cars[0];
-		} else {
-			throw new RuntimeException("First spot is empty!");
-		}
+		return cars[0];
 	}
 	
 	public boolean lastFree(){
