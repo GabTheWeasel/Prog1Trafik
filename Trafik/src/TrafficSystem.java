@@ -3,7 +3,12 @@
  * bleh
  */
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class TrafficSystem {
 	private Lane r0;
@@ -21,17 +26,28 @@ public class TrafficSystem {
 	private int carsSTimeTotal = 0;
 	private int r1full = 0;
 	private int r2full = 0;
+	Scanner scan;
 	
   public TrafficSystem(VehicleGenerator vg) {
+	  try {
+		scan = new Scanner(new InputStreamReader(new FileInputStream("settings.txt"), "UTF-8"));
+		  this.r2 = new Lane(scan.nextInt());
+		  this.r1 = new Lane(scan.nextInt());
+		  this.r0 = new Lane(scan.nextInt());
+		  
+		  this.s1 = new Light(scan.nextInt(),scan.nextInt());
+		  this.s2 = new Light(scan.nextInt(),scan.nextInt());
+	} catch (UnsupportedEncodingException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (FileNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	  
 	  this.vg = vg;
-	  this.r0 = new Lane(9);
-	  this.r1 = new Lane(7);
-	  this.r2 = new Lane(7);
 	  
-	  this.s1 = new Light(5,2);
-	  this.s2 = new Light(5,2);
-	  
-	  
+	  scan.close();
   }
   
   
