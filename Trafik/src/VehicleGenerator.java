@@ -1,5 +1,5 @@
 /**
- * Generates Vehicle with (different) intesity.
+ * Generates Vehicle with (different) intensities.
  */
 import java.util.ArrayList;
 

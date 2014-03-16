@@ -108,10 +108,8 @@ public class TrafficSystem {
 		  
 		  
 	} catch (UnsupportedEncodingException e) {
-		// TODO Auto-generated catch block
 		e.printStackTrace();
 	} catch (FileNotFoundException e) {
-		// TODO Auto-generated catch block
 		e.printStackTrace();
 	} catch (InputMismatchException e) {
 		e.printStackTrace();

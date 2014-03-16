@@ -1,12 +1,18 @@
-/* Represents a traffic signal */
-
+/**
+ * Represents a traffic signal
+ */
 public class Light {
 	
-	private int p;
-	private int gr;
-	private int clock;
+	private int p;	//The period for the light (green to green)
+	private int gr;	//The amount of time the light is green
+	private int clock;	//An integer containing the "time"
 	
-	/* Constructs and initializes a light */
+	/**
+	 * Constructs and initializes a light
+	 *
+	 * @param period the period
+	 * @param green the green
+	 */
 	public Light(int period, int green){
 		
 		this.p = period;
@@ -15,7 +21,9 @@ public class Light {
 		
 	}
 	
-	/* Advances the internal clock by one */
+	/**
+	 * Advances the internal clock by one
+	 */
 	public void step(){
 		
 		if(clock < p-1){
@@ -27,7 +35,11 @@ public class Light {
 		
 	}
 	
-	/* Checks if the light is green or not */ 
+	/**
+	 * Checks if the light is green 
+	 *
+	 * @return true if the light is green else false
+	 */
 	public boolean isGreen(){
 		
 		if(clock < gr){
@@ -39,7 +51,10 @@ public class Light {
 	}
 	
 	
-	/* Returns a String representation of the light. (G) - Green or (R) - Red */ 
+	/** 
+	 * Returns a String representation of the light. (G) - Green or (R) - Red
+	 * @see java.lang.Object#toString()
+	 */
 	public String toString(){
 		
 		if(isGreen()){
