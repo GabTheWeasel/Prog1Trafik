@@ -29,14 +29,23 @@ public class TrafficSystem {
 	Scanner scan;
 	
   public TrafficSystem(VehicleGenerator vg) {
+	  ArrayList<Integer> values = new ArrayList<Integer>();
 	  try {
-		scan = new Scanner(new InputStreamReader(new FileInputStream("settings.txt"), "UTF-8"));
-		  this.r2 = new Lane(scan.nextInt());
-		  this.r1 = new Lane(scan.nextInt());
-		  this.r0 = new Lane(scan.nextInt());
 		  
-		  this.s1 = new Light(scan.nextInt(),scan.nextInt());
-		  this.s2 = new Light(scan.nextInt(),scan.nextInt());
+		  Scanner scan = new Scanner(new InputStreamReader(new FileInputStream("settings.txt"), "UTF-8"));
+		  while(scan.hasNextLine()){
+			  scan.nextLine();
+			  values.add(scan.nextInt());
+			  scan.nextLine();
+			  scan.nextLine();
+			}
+			scan.close();
+		  this.r2 = new Lane(values.remove(0));
+		  this.r1 = new Lane(values.remove(0));
+		  this.r0 = new Lane(values.remove(0));
+		  
+		  this.s1 = new Light(values.remove(0),values.remove(0));
+		  this.s2 = new Light(values.remove(0),values.remove(0));
 	} catch (UnsupportedEncodingException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
@@ -47,7 +56,6 @@ public class TrafficSystem {
 	  
 	  this.vg = vg;
 	  
-	  scan.close();
   }
   
   
