@@ -26,22 +26,25 @@ public class TrafficSystem {
 	private int carsSTimeTotal = 0;
 	private int r1full = 0;
 	private int r2full = 0;
-	Scanner scan;
 	
   public TrafficSystem(VehicleGenerator vg) {
 	  ArrayList<Integer> values = new ArrayList<Integer>();
 	  ArrayList<Integer> periods = new ArrayList<Integer>();
 	  ArrayList<Double> intensity = new ArrayList<Double>();
+	  double turnIntensity = 0;
 	  this.vg = vg;
 	  try {
-		  
 		  Scanner scan = new Scanner(new InputStreamReader(new FileInputStream("settings.txt"), "UTF-8"));
-		  for(int a = 0; a < 8; a++){
+		  for(int a = 0; a < 7; a++){
 			  scan.nextLine();
 			  values.add(scan.nextInt());
 			  scan.nextLine();
 			  scan.nextLine();
 		  }
+		  scan.nextLine();
+		  turnIntensity = scan.nextDouble();
+		  scan.nextLine();
+		  scan.nextLine();
 		  scan.nextLine();
 		  while(scan.hasNextDouble()) {
 			  intensity.add(scan.nextDouble());
@@ -54,7 +57,7 @@ public class TrafficSystem {
 			  scan.nextLine();
 		  }
 		  
-		  this.vg.setTurnIntensity(values.remove(0));
+		  this.vg.setTurnIntensity(turnIntensity);
 		  this.vg.setPeriods(periods);
 		  this.vg.setIntensity(intensity);
 		  

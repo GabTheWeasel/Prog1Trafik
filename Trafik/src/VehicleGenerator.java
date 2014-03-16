@@ -37,7 +37,7 @@ public class VehicleGenerator {
 	  this.intensity = a;
   }
 
-  public void setTurnIntensity(int a) {
+  public void setTurnIntensity(double a) {
 	  this.turnIntensity = a;
   }  
   /**
