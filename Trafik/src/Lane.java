@@ -1,5 +1,6 @@
 /**
- * The Class Lane.
+ * The Lane class represents a lane of cars, held by an array of Vehicles.
+ * There are some simple methods to manipulate the lane.
  */
 public class Lane {
 	/* The cars in the lane */
@@ -10,7 +11,7 @@ public class Lane {
 	 *
 	 * @param length - The length (capacity) of the lane in number of vehicles
 	 */
-	public Lane(int length){
+	public Lane(int length) {
 		cars = new Vehicle[length];
 	}
 	
@@ -28,8 +29,8 @@ public class Lane {
 	 *
 	 * @return true if the last position is free (null) else false
 	 */
-	public boolean lastFree(){
-		if (cars[cars.length-1] == null){
+	public boolean lastFree() {
+		if (cars[cars.length-1] == null) {
 			return true;
 		} else {
 			return false;

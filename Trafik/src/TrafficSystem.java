@@ -3,6 +3,7 @@ import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -65,7 +66,7 @@ public class TrafficSystem {
 		name (Strictly for the user, as the program doesn't take note of these.
 		value
 		Blank line*/
-		  for(int a = 0; a < 7; a++){
+		  for (int a = 0; a < 7; a++) {
 			  scan.nextLine();
 			  values.add(scan.nextInt());
 			  scan.nextLine();
@@ -77,7 +78,7 @@ public class TrafficSystem {
 		  scan.nextLine();
 		  scan.nextLine();
 		  
-		  while(scan.hasNextDouble()) {
+		  while (scan.hasNextDouble()) {
 			  intensity.add(scan.nextDouble()); //This while-loop will read the
 			  scan.nextLine();					//intensity-valuesuntil it 
 		  }										//reaches the blank line
@@ -85,7 +86,7 @@ public class TrafficSystem {
 		  scan.nextLine();
 		  scan.nextLine();
 		  
-		  while(scan.hasNextInt()) {		//this loop reads the period values
+		  while (scan.hasNextInt()) {		//this loop reads the period values
 			  periods.add(scan.nextInt());
 			  scan.nextLine();
 		  }
@@ -102,8 +103,8 @@ public class TrafficSystem {
 		  this.r1 = new Lane(values.remove(0));
 		  this.r0 = new Lane(values.remove(0));
 	//Here the lights are created with the period times specified in the file
-		  this.s1 = new Light(values.remove(0),values.remove(0));
-		  this.s2 = new Light(values.remove(0),values.remove(0));
+		  this.s1 = new Light(values.remove(0), values.remove(0));
+		  this.s2 = new Light(values.remove(0), values.remove(0));
 		  
 		  
 	} catch (UnsupportedEncodingException e) {
@@ -111,6 +112,8 @@ public class TrafficSystem {
 		e.printStackTrace();
 	} catch (FileNotFoundException e) {
 		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (InputMismatchException e) {
 		e.printStackTrace();
 	}
   }
@@ -127,7 +130,7 @@ public class TrafficSystem {
 	  
 	  //Then, the lanes are checked to see if there is a car in the first position, 
 	  //and if the light is green. if so, the car is removed (drives off the road)
-	  if (s1.isGreen() && r1.getFirst() != null){
+	  if (s1.isGreen() && r1.getFirst() != null) {
 		  carsW++; //keeps track of the amount of cars that has passed
 		  
 		//Tracks the amount of time spent going through the road
@@ -156,17 +159,17 @@ public class TrafficSystem {
 	  
 	  /*The following block checks to see if there is a car at the front of r0
 		and checks which direction it's going*/
-	  if(r0.getFirst() != null) {	
+	  if (r0.getFirst() != null) {	
 		  if (r0.getFirst().getDestination() == 'S') {
 			  //then it determines if it can go and moves it
-			  if (r2.lastFree()){
+			  if (r2.lastFree()) {
 			  	r2.putLast(r0.removeFirst());
 			  } else {
 				  r2full++;
 				  //if it was full, it adds to the full-counter for the lane
 			  }
 		  } else if (r0.getFirst().getDestination() == 'W') {
-			  if (r1.lastFree()){
+			  if (r1.lastFree()) {
 				  	r1.putLast(r0.removeFirst());
 			  } else {
 					  r1full++;
@@ -185,7 +188,7 @@ public class TrafficSystem {
 	  
 	  //If there is a car in the queue and r0's last spot is empty, it adds the
 	  //car to the queue
-	  if(queue.size() > 0 && r0.lastFree()){
+	  if (queue.size() > 0 && r0.lastFree()) {
 		  r0.putLast(queue.remove(0));
 	  }
   }
@@ -211,5 +214,4 @@ public class TrafficSystem {
 			  " Queue = [" + queue.size() + "]");
 	  System.out.println(s2.toString() + r2.toString());
   }
-  
 }
