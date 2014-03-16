@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TrafficSystem {
+	
+	/* Initializes all neccessary objects for the system */
 	private Lane r0;
 	private Lane r1;
 	private Lane r2;
@@ -27,6 +29,7 @@ public class TrafficSystem {
 	private int r1full = 0;
 	private int r2full = 0;
 	
+	/* Reads from file settings.txt and gives the traffic system the correct values. */
   public TrafficSystem(VehicleGenerator vg) {
 	  ArrayList<Integer> values = new ArrayList<Integer>();
 	  ArrayList<Integer> periods = new ArrayList<Integer>();
