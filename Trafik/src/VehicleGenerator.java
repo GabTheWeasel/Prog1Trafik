@@ -27,7 +27,19 @@ public class VehicleGenerator {
     time = 0;
     index = 0;
   }
-    
+  
+  public void setPeriods(ArrayList<Integer> a) {
+	  this.periods = a;
+	  period = periods.get(periods.size()-1);
+  }
+
+  public void setIntensity(ArrayList<Double> a) {
+	  this.intensity = a;
+  }
+
+  public void setTurnIntensity(int a) {
+	  this.turnIntensity = a;
+  }  
   /**
    * Generate a vehicle
    * @return A vehicle or null

@@ -30,22 +30,43 @@ public class TrafficSystem {
 	
   public TrafficSystem(VehicleGenerator vg) {
 	  ArrayList<Integer> values = new ArrayList<Integer>();
+	  ArrayList<Integer> periods = new ArrayList<Integer>();
+	  ArrayList<Double> intensity = new ArrayList<Double>();
+	  this.vg = vg;
 	  try {
 		  
 		  Scanner scan = new Scanner(new InputStreamReader(new FileInputStream("settings.txt"), "UTF-8"));
-		  while(scan.hasNextLine()){
+		  for(int a = 0; a < 8; a++){
 			  scan.nextLine();
 			  values.add(scan.nextInt());
 			  scan.nextLine();
 			  scan.nextLine();
-			}
-			scan.close();
+		  }
+		  scan.nextLine();
+		  while(scan.hasNextDouble()) {
+			  intensity.add(scan.nextDouble());
+			  scan.nextLine();
+		  }
+		  scan.nextLine();
+		  scan.nextLine();
+		  while(scan.hasNextInt()) {
+			  periods.add(scan.nextInt());
+			  scan.nextLine();
+		  }
+		  
+		  this.vg.setTurnIntensity(values.remove(0));
+		  this.vg.setPeriods(periods);
+		  this.vg.setIntensity(intensity);
+		  
+		  scan.close();
 		  this.r2 = new Lane(values.remove(0));
 		  this.r1 = new Lane(values.remove(0));
 		  this.r0 = new Lane(values.remove(0));
 		  
 		  this.s1 = new Light(values.remove(0),values.remove(0));
 		  this.s2 = new Light(values.remove(0),values.remove(0));
+		  
+		  
 	} catch (UnsupportedEncodingException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
@@ -53,9 +74,6 @@ public class TrafficSystem {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-	  
-	  this.vg = vg;
-	  
   }
   
   
