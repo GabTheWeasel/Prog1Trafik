@@ -1,0 +1,7 @@
+r_two length = 10
+r_one length = 5
+r_zero length = 6
+s_one period = 5
+s_one green = 3
+s_two period = 8
+s_two green = 6
