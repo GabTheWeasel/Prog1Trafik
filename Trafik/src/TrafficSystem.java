@@ -133,21 +133,21 @@ public class TrafficSystem {
 		  
 		//Tracks the amount of time spent going through the road
 		  carsWTimeTotal = carsWTimeTotal + 
-				  (Simulation.getTime()-r1.getFirst().getTime()); 
+				  (Simulation.getTime() - r1.getFirst().getTime()); 
 		  
 		//Asserts if the car was the slowest car through or not
-		  if (carsWTimeMax < (Simulation.getTime()-r1.getFirst().getTime())) {
+		  if (carsWTimeMax < (Simulation.getTime() - r1.getFirst().getTime())) {
 			//If so, the maximum is set to it
-			  carsWTimeMax = (Simulation.getTime()-r1.getFirst().getTime());
+			  carsWTimeMax = (Simulation.getTime() - r1.getFirst().getTime());
 		  }
 		  r1.removeFirst(); 	// And the car is removed
 	  }
 	  if (s2.isGreen() && r2.getFirst() != null) {	//the same as previous block
 		  carsS++;									//but for this lane
-		  carsSTimeTotal = carsSTimeTotal + (Simulation.getTime()-
+		  carsSTimeTotal = carsSTimeTotal + (Simulation.getTime() -
 				  r2.getFirst().getTime());
-		  if (carsSTimeMax < (Simulation.getTime()-r2.getFirst().getTime())) {
-			  carsSTimeMax = (Simulation.getTime()-r2.getFirst().getTime());
+		  if (carsSTimeMax < (Simulation.getTime() - r2.getFirst().getTime())) {
+			  carsSTimeMax = (Simulation.getTime() - r2.getFirst().getTime());
 		  }
 		  r2.removeFirst();
 	  }

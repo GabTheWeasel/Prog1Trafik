@@ -13,23 +13,21 @@ public class Light {
 	 * @param period the period
 	 * @param green the green
 	 */
-	public Light(int period, int green){
-		
+	public Light(int period, int green) {
 		this.p = period;
 		this.gr = green;
 		this.clock = 0;
-		
 	}
 	
 	/**
 	 * Advances the internal clock by one
 	 */
-	public void step(){
+	public void step() {
 		
-		if(clock < p-1){
+		if (clock < p-1) {
 			clock++;
 		}
-		else{
+		else {
 			clock = 0;
 		}
 		
@@ -40,9 +38,9 @@ public class Light {
 	 *
 	 * @return true if the light is green else false
 	 */
-	public boolean isGreen(){
+	public boolean isGreen() {
 		
-		if(clock < gr){
+		if (clock < gr) {
 			return true;
 		}
 		
@@ -55,15 +53,12 @@ public class Light {
 	 * Returns a String representation of the light. (G) - Green or (R) - Red
 	 * @see java.lang.Object#toString()
 	 */
-	public String toString(){
+	public String toString() {
 		
-		if(isGreen()){
+		if (isGreen()) {
 			return "(G)";
-			//return "Green light with a period of " + p + " and a green period of " + gr + ".";
 		}
-		
 		return "(R)";
-		//return "Red light with a period of " + p + " and a green period of " + gr + ".";
 	}
 
 }

@@ -5,7 +5,6 @@ public class Vehicle {
 
 	/** The destination */
 	private char dest;
-	
 	/** The born time. */
 	private int bornTime;
 	
@@ -14,7 +13,7 @@ public class Vehicle {
 	 *
 	 * @param destination the destination ( W or S)
 	 */
-	public Vehicle(char destination){
+	public Vehicle(char destination) {
 		
 		this.dest = destination;
 		this.bornTime = Simulation.getTime();
@@ -26,7 +25,7 @@ public class Vehicle {
 	 *
 	 * @return the destination
 	 */
-	public char getDestination(){
+	public char getDestination() {
 		
 		return this.dest;
 		
@@ -37,7 +36,7 @@ public class Vehicle {
 	 *
 	 * @return the time the car was created
 	 */
-	public int getTime(){
+	public int getTime() {
 		
 		return bornTime;
 		
@@ -47,7 +46,7 @@ public class Vehicle {
 	 *  
 	 * @see java.lang.Object#toString()
 	 */
-	public String toString(){
+	public String toString() {
 		
 		return "Vehicle going " + dest  + " that was born at " + bornTime + ".";
 		
