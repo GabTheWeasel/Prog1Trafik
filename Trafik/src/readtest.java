@@ -9,25 +9,19 @@ import java.util.Scanner;
 public class readtest {
 
 	public static void main(String[] args) {
-		ArrayList<Integer> s = new ArrayList<Integer>();
-		// TODO Auto-generated method stub
-		try {
-			Scanner scan = new Scanner(new InputStreamReader(new FileInputStream("settings.txt"), "UTF-8"));
-			while(scan.hasNextLine()){
-				scan.nextLine();
-				s.add(scan.nextInt());
-				scan.nextLine();
-				scan.nextLine();
-			}
-			scan.close();
-			System.out.println(s);
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		ArrayList<Double> s = new ArrayList<Double>();
+		Scanner scan = new Scanner(System.in);
+		s.add(scan.nextDouble());
+		/*			Scanner scan = new Scanner(new InputStreamReader(new FileInputStream("settings.txt"), "UTF-8"));
+		while(scan.hasNextLine()){
+			scan.nextLine();
+			s.add(scan.nextInt());
+			scan.nextLine();
+			scan.nextLine();
+		}*/
+		
+		scan.close();
+		System.out.println(s);
 	}
 
 }
