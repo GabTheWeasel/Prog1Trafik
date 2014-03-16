@@ -1,4 +1,4 @@
-/* En trafiksignal */
+/* Represents a traffic signal */
 
 public class Light {
 	
@@ -6,6 +6,7 @@ public class Light {
 	private int gr;
 	private int clock;
 	
+	/* Constructs and initializes a light */
 	public Light(int period, int green){
 		
 		this.p = period;
@@ -14,6 +15,7 @@ public class Light {
 		
 	}
 	
+	/* Advances the internal clock by one */
 	public void step(){
 		
 		if(clock < p-1){
@@ -25,6 +27,7 @@ public class Light {
 		
 	}
 	
+	/* Checks if the light is green or not */ 
 	public boolean isGreen(){
 		
 		if(clock < gr){
@@ -35,6 +38,8 @@ public class Light {
 		
 	}
 	
+	
+	/* Returns a String representation of the light. (G) - Green or (R) - Red */ 
 	public String toString(){
 		
 		if(isGreen()){
