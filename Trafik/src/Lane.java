@@ -2,7 +2,7 @@
  * The Class Lane.
  */
 public class Lane {
-	/** The cars in the lane */
+	/* The cars in the lane */
 	Vehicle[] cars;
 	
 	/**
@@ -84,8 +84,8 @@ public class Lane {
 	}
 	
 	/**
-	 * Advances all except the first vehicle one position provided the target position is free.
-	 * The process starts in the low end (i. e. at index 1). 
+	 * Advances all except the first vehicle one position provided the target
+	 * position is free. The process starts in the low end (i. e. at index 1). 
 	 */
 	public void step() {
 		for (int a = 1; a < cars.length; a++) {

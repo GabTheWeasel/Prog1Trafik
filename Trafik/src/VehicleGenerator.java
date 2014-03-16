@@ -28,25 +28,39 @@ public class VehicleGenerator {
     index = 0;
   }
   
-  /* Sets a new period for the current intensity */
+  /**
+   * Sets the periods.
+   * 
+   *@param a the new intensity 
+   */
+
   public void setPeriods(ArrayList<Integer> a) {
 	  this.periods = a;
 	  period = periods.get(periods.size()-1);
   }
 
-  /* Sets the probability of a new car getting generated  */
+  /**
+   * Sets the intensity, which is the probability of a car being spawned
+   *
+   * @param a the new intensity
+   */
   public void setIntensity(ArrayList<Double> a) {
 	  this.intensity = a;
   }
 
-  /* Sets the probability for a car to turn */ 
+  /**
+   * Sets the turn intensity, which is the probability of a car to turn
+   *
+   * @param a the new turn intensity
+   */
   public void setTurnIntensity(double a) {
 	  this.turnIntensity = a;
-  }  
+  }
   /**
    * Generate a vehicle
    * @return A vehicle or null
    */
+  
   public Vehicle step() {
     time = time+1;
     if (time>=period) {
